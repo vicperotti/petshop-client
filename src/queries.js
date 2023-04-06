@@ -10,3 +10,14 @@ query Pets {
     pettype
   }
 }`
+
+export const GET_PET = gql`
+query Pet($petId: ID!) {
+  pet(id: $petId) {
+    id
+    petname
+    pettype
+    petprice
+    petphoto
+  }
+}`

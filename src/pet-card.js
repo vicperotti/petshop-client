@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { blue, green, grey, pink } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 //import { colors, mq } from '../styles';
 
 /**
@@ -11,6 +12,7 @@ export const PetCard = ({ pet }) => {
   const { petname, id, pettype, petprice, petphoto } = pet;
 
   return (
+    <Link to={`/petDetail/${id}`}>
     <CardContainer>
       <CardContent>
         <CardImageContainer>
@@ -18,14 +20,15 @@ export const PetCard = ({ pet }) => {
         </CardImageContainer> 
         <CardBody>
           <CardTitle>{petname || ''}</CardTitle>
-          <CardFooter>
+          {/* <CardFooter>
             <AuthorAndTrack>
               <PetPrice>{petprice}</PetPrice>
             </AuthorAndTrack>
-          </CardFooter>
+          </CardFooter> */}
         </CardBody>
       </CardContent>
     </CardContainer>
+    </Link>
   );
 };
 
@@ -45,7 +48,7 @@ const CardContainer = styled.div({
   overflow: 'hidden',
   position: 'relative',
   ':hover': {
-    backgroundColor: green
+    backgroundColor: green[600]
   },
   cursor: 'pointer',
 });
@@ -67,7 +70,7 @@ const CardTitle = styled.h3({
 });
 
 const CardImageContainer = styled.div({
-  height: 220,
+  height: 320,
   position: 'relative',
   '::after': {
     content: '""',
@@ -76,22 +79,22 @@ const CardImageContainer = styled.div({
     bottom: 0,
     left: 0,
     right: 0,
-    background: 'rgba(50,150,150,0.20)',
+    background: 'rgba(50,50,50,0.20)',
   },
 });
 
 const CardImage = styled.img({
-  objectFit: 'cover',
+  objectFit: 'contain',
   width: '100%',
   height: '100%',
-  filter: 'grayscale(60%)',
+  filter: 'grayscale(10%)',
 });
 
 const CardBody = styled.div({
   padding: 18,
   flex: 1,
   display: 'flex',
-  color: grey,
+  color: grey[0],
   flexDirection: 'column',
   justifyContent: 'space-around',
 });

@@ -2,17 +2,8 @@ import React from 'react';
 import { useQuery, gql } from "@apollo/client";
 import { PetCard } from './pet-card';
 import { Grid } from '@mui/material'
-
-const GET_PETS = gql`
-query Pets {
-  pets { 
-    petname
-    petprice
-    id
-    petphoto
-    pettype
-  }
-}`
+import Navbar from './navbar';
+import { GET_PETS } from './queries';
 
 
 /**
@@ -30,8 +21,8 @@ export const Pets = () => {
 
   return (
     <>
-    <h3>Here be Pets </h3>
-    <Grid container spacing={2}>
+    <Navbar />
+    <Grid container spacing={2} marginTop={2}>
       {
       data.pets.map((pet) => (
         <Grid item key={pet.id} xs={12} md={3} >
